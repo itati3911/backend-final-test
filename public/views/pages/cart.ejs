@@ -1,0 +1,68 @@
+<%- include('../partials/header.ejs', { title: 'COMPRAS', showNavbar: true });
+-%>
+
+<main>
+  <section class="cart py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1>COMPRAS</h1>
+      </div>
+      <div class="d-flex justify-content-center">
+        <% if(products.length > 0) { %>
+
+        <ul
+          class="list-unstyled d-flex justify-content-center align-items-center gap-4 flex-wrap flex-column"
+          style="width: 800px"
+        >
+          <% products.forEach(function(product){ %> <%-
+          include('../partials/cart-card.ejs', { product, cartId, showButtons:
+          true }); -%> <% }); %>
+
+          <div
+            class="w-100 border rounded px-5 d-flex justify-content-between align-items-center"
+            style="height: 100px"
+          >
+            <h4 class="fw-lighter">TOTAL</h4>
+            <p class="fs-2">$<%= %></p>
+          </div>
+
+          <div
+            class="w-100 border rounded px-5 py-3 d-flex justify-content-center align-items-center gap-3"
+          >
+            <form action="/api/cart/<%= cartId %>/delete" method="POST">
+              <button class="btn rounded-3 border border-dark site_button">
+                ELIMINAR
+              </button>
+            </form>
+            <form action="/api/order" method="POST">
+              <input type="hidden" name="products" value="" />
+              <input type="hidden" name="state" value="Generada" />
+              <input type="hidden" name="buyer_email" value="" />
+              <button class="btn rounded-3 border border-dark site_button">
+                SEGUIR COMPRANDO
+              </button>
+            </form>
+          </div>
+        </ul>
+
+        <% }else{ %>
+
+        <div
+          class="border rounded p-5 d-flex flex-column justify-content-center align-items-center"
+          style="width: 800px"
+        >
+          <p class="m-0 fs-4">CARRITO VACIO</p>
+          <span
+            ><a class="text-danger text-decoration-none" href="/"
+              >VOLVER</a
+            ></span
+          >
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer.ejs', { showFooter: true }); -%>

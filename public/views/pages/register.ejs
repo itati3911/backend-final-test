@@ -1,0 +1,90 @@
+<%- include('../partials/header.ejs', { title: 'REGISTRO', showNavbar: false });
+-%>
+
+<main>
+  <section class="register" style="background-color: #2e3338">
+    <div
+      class="container d-flex justify-content-center align-items-center"
+      style="height: 100vh"
+    >
+      <div
+        class="text-white bg-dark"
+        style="width: 600px; padding: 5rem 3rem; border-radius: 2rem"
+      >
+        <div class="text-center mb-5">
+          <h2>REGISTRO</h2>
+        </div>
+        <div class="mb-4">
+          <form
+            action="/auth/register"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="username">NOMBRE</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="username"
+                  name="username"
+                />
+              </div>
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="email">EMAIL</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <label class="form-label" for="age">EDAD</label>
+                <input class="form-control" type="number" id="age" name="age" />
+              </div>
+              <div class="col-md-8 mb-4">
+                <label class="form-label" for="address">DIRECCION</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="address"
+                  name="address"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="phone">TELEFONO</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="phone"
+                  name="phone"
+                />
+              </div>
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="image">AVATAR</label>
+                <input class="form-control" type="file" name="image" />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="password">PASSWORD</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+              />
+            </div>
+            <button class="btn btn-primary w-100">REGISTRAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer.ejs', { showFooter: false }); -%>

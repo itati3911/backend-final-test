@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs', { title: 'LOGIN', showNavbar: false });
+-%>
+
+<main>
+  <section class="login" style="background-color: #2e3338">
+    <div
+      class="container d-flex justify-content-center align-items-center"
+      style="height: 100vh"
+    >
+      <div
+        class="text-white bg-dark"
+        style="width: 400px; padding: 5rem 3rem; border-radius: 2rem"
+      >
+        <div class="text-center mb-5">
+          <h2>LOGIN</h2>
+        </div>
+        <div class="mb-4">
+          <form action="/auth/login" method="POST">
+            <div class="mb-3">
+              <label class="form-label" for="email">EMAIL</label>
+              <input
+                class="form-control"
+                type="email"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="password">PASSWORD</label>
+              <input
+                class="form-control"
+                type="password"
+                name="password"
+                id="password"
+                required
+              />
+            </div>
+            <button class="btn btn-primary w-100">LOGIN</button>
+          </form>
+        </div>
+        <span style="font-size: 0.85rem">
+          <a href="/auth/register">REGISTRARSE</a></span
+        >
+      </div>
+    </div>
+  </section>
+</main>
